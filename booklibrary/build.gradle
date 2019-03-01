@@ -1,0 +1,62 @@
+apply plugin: 'com.android.library'
+apply plugin: 'org.greenrobot.greendao'
+
+android {
+    compileSdkVersion 28
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+greendao{
+    schemaVersion 3
+    daoPackage 'com.read.booklibrary.model.gen'
+    targetGenDir 'src/main/java'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
+    implementation "com.android.support:cardview-v7:28.0.0"
+    // View injection
+    // RxJava
+    implementation "io.reactivex.rxjava2:rxandroid:2.0.1"
+    implementation "io.reactivex.rxjava2:rxjava:2.0.1"
+    // NetWork
+    implementation "com.squareup.okhttp3:okhttp:3.11.0"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.2.0'
+
+    implementation "com.squareup.retrofit2:retrofit:2.4.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.4.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.4.0"
+    // ImageLoader
+    implementation "com.github.bumptech.glide:glide:3.7.0"
+    // ORM Database
+    implementation "org.greenrobot:greendao:3.2.0"
+
+    // OpenCC to convert Simp. Chinese to Trad. Chinese 中文简转繁
+    implementation "com.zqc.opencc.android.lib:lib-opencc-android:0.8.0@aar"
+
+    // AndroidTagGroup
+    implementation 'me.gujun.android.taggroup:library:1.4@aar'
+
+    //带圆角的image
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+}
